@@ -1,0 +1,549 @@
+<html><head>
+<title>プログラミング入門</title>
+<meta charset="utf-8">
+<style>
+code {font-family: monospace;display: block;background: #eeeeee;border: solid #009900 2px;white-space: pre-line;padding: 10px;margin-left: 25px;font-size: 1rem;
+    margin-top:10px;
+    margin-bottom:10px;}
+
+  code::before{
+    content:"コード";
+    display: block;
+    border: solid 1px;
+    width: max-content;
+    padding:4px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+    white-space: nowrap;
+  }
+
+div {font-family: monospace;display: block;background: #eeeeee;border: solid #000099 2px;white-space: pre-line;padding: 10px;margin-left: 25px;font-size: 1rem;
+    margin-top:10px;
+    margin-bottom:10px;}
+
+  div::before{
+    content:"出力";
+    display: block;
+    border: solid 1px;
+    width: max-content;
+    padding:4px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+    white-space: nowrap;
+  }
+  
+h2 {
+    border-bottom: solid;
+    color: #009900;
+}
+
+p {
+    display: block;
+    white-space: pre-line;
+    margin-left: 25px;
+    font-size: 1.1rem;
+}
+
+
+b {
+    color: #aa0000;
+}
+
+  span{
+    color: #990099
+  }
+
+  table,th,td{
+    border: 1px solid;
+  }
+
+  table{
+    margin-left:25px;
+  }
+
+  strong
+  {
+     user-select: none;
+     font-family: monospace;
+     color: #006600;
+  }
+</style>
+</head>
+<body>
+<h1>プログラミング言語入門</h1>
+    <p>※実践できるコードではなくプログラミングの概念を学ぶことを想定しています。</p>
+<h2>文字の出力</h2>
+    <p>文字の出力とは文字を画面に出力することです。
+      その方法は console.log, Console.WriteLine, echo などプログラミング言語によって様々ですがここでは Python で使われている print を使います。
+    print を使うには以下のようにコードを書きます。</p>
+  <code>print("Hello World")</code>
+  <div>Hello World</div>
+  <p>上記のコードは画面上に Hello World と書くコードです。
+  つまり、 Hello World の部分を変えれば様々な文字を出力できます。</p>
+  <code>print("プログラミング")
+  print("入門")</code>
+  <div>プログラミング
+  入門</div>
+  <p>print は改行されて表示されます。</p>
+<h2>データ型</h2>
+  <p>プログラミングでは数値と文字列を別のものとして扱います。
+  例えば、"abc" は文字列、123 は数値として扱かいます。
+  ここで、注意しなければならないのは、<b>"123" は文字列として扱われることです。</b>
+  プログラミングでは数値を表す場合そのまま書き、文字列型として書く場合はダブルクォーテーション 「"」 で囲います。
+  これらの数値、文字などのデータの種類のことを<b>型</b>、あるいは<b>データ型</b>といいます。一般的に使われるプログラミング言語のデータ型には以下のようなものがあります。</p>
+  <table>
+    <thead>
+      <th>データ型</th><th>用途</th><th>例</th>
+    </thead>
+    <tbody>
+      <tr><td>数値型</td><td>数値(実数)</td><td>123<br>3.14<br>-6.29</td></tr>
+      <tr><td>文字列</td><td>文字列</td><td>"alphabet"<br>"あいうえお"<br>"12345"</td></tr>
+      <tr><td>論理型(ブーリアン型)</td><td>on, off など、二種類しかない値</td><td>true<br>false</td></tr>
+      <tr><td>配列型</td><td>複数の値をまとめて扱う</td><td>[0,1,2,3]<br>["佐藤","田中","山田"]</td></tr>
+    </tbody>
+  </table>
+  <p>これらの型は言語によって異なる場合があります。
+    例えば、数値型に int型, float型, double型など複数の種類があったり、null型, undefined型など別の型が使われることもあります。
+  </p>
+  <h2>演算子</h2>
+  <p><b>演算子</b>とは演算をするための記号です。
+  数学で例えると + や や ÷ などの記号のことです。
+  プログラミングでの演算子は大きく分けて二つの演算子があります。
+  一つ目は<b>算術演算子</b>です。
+  これは + や - など計算や文字列の操作をするためにあります。
+  二つ目は<b>論理演算子</b>です。
+  主に数値や文字列が等しいか、どちらが大きいかなどの比較をするためにあります。
+  後述の if文 で使用します。
+  以下が基本的な演算子です。</p>
+  <table>
+    <thead>
+      <th>演算子</th><th>種類</th><th>用途</th>
+    </thead>
+    <tbody>
+      <tr><td>+</td><td>算術演算子</td><td>数値を加算、もしくは文字列の連結をします。</tr>
+      <tr><td>-</td><td>算術演算子</td><td>数値の減算をします。</td></tr>
+      <tr><td>*</td><td>算術演算子</td><td>数値の乗算をします。</td></tr>
+      <tr><td>/</td><td>算術演算子</td><td>数値の除算をします。</td></tr>
+      <tr><td>%</td><td>算術演算子</td><td>数値の剰余(割り算の余り)を計算します。</td></tr>
+      <!--<tr><td>++</td><td>算術演算子</td><td>数値に一を加算します。(インクリメント)</td></tr>
+      <tr><td>--</td><td>算術演算子</td><td>数値に一を減算します。(デクリメント)</td></tr>-->
+      <tr><td>==</td><td>論理演算子</td><td>二つのデータが等しいか確認します。</td></tr>
+    <tr><td>!=</td><td>論理演算子</td><td>二つのデータが等しくないか確認します。</td></tr>
+    <tr><td>&gt;</td><td>論理演算子</td><td>右辺が左辺より大きいか確認します。</td></tr>
+    <tr><td>&lt;</td><td>論理演算子</td><td>右辺が左辺より小さいか確認します。</td></tr>
+    <tr><td>&gt;=</td><td>論理演算子</td><td>右辺が左辺以上か確認します。</td></tr>
+    <tr><td>&lt;=</td><td>論理演算子</td><td>右辺が左辺以下か確認します。</td></tr>
+    </tbody>
+  </table>
+  <p>算術演算子は a + b のように記述します。
+  1 + 5 の場合、6 に、
+  3 - 4 の場合、-1 に、
+  5 * 2 の場合、10 に、
+  3 / 2 の場合、1.5 に、
+  8 % 3 の場合、2 に、
+  "abc" + "def" の場合、"abcdef" になります。
+  数値型同士で + を使うと足し算になりますが、文字列型同士で + を使うと単純に文字列を連結します。
+  数学と同様、乗算・除算が先に計算されます。
+  加算・減算を先に計算したい場合かっこを付けます。
+  コードでは以下のようになります。</p>
+  <code>print(2.3 + 4.6)
+  print(3 - 2)
+  print(-3 * 4)
+  print(10 / 0.5)
+  print(6 % 2)
+  print(3 + 2 * 2)
+  print((3 + 2) * 2)</code>
+  <div>6.9
+  1
+  -12
+  20
+  0
+  7
+  10</div>
+  <p>論理演算子で気を付けなくてはならないことは、数学での 「=」 が 「==」 になっていることです。
+  プログラミングでの 「=」 は後述の「変数」で使用します。</p>
+  <h2>変数</h2>
+  <p><b>変数</b>はデータを保存できる仕組みです。
+  変数を使うには<b>変数名</b>を決める必要があります。
+  変数は
+  &nbsp;&nbsp;変数名 = 値
+  で使用することができます。
+  このように変数に値を保存することを<b>代入</b>といいます。
+  ※先頭に var, let, int などが必要になるプログラミング言語もあります。
+  数学の変数とは異なり、プログラミングの変数では文字列を代入したり、一文字ではない変数名を付けることができます。
+  変数名は通常、アルファベットや数字を使います。
+  但し、変数名の最初の文字に数字を使うことはできません。
+    
+  hennsuu → OK
+  hennsuu2 → OK
+  a1b2c3 →OK
+  123hennsuu → エラー
+  12345 → エラー
+    
+  プログラミング言語によっては日本語や記号、その他の言語を使うとエラーになる場合があります。
+  以下がコードです。</p>
+  <code>number = 10
+  print(number)</code>
+  <div>10</div>
+  <p>上のコードでは1行目で 変数number に 10 を代入しています。
+    2行目では 変数number の値、すなわち 10 を出力しています。
+  変数を使う時にはダブルクォーテーション " は必要ありません。
+
+  変数は一度代入した値を変更することもできます。</p>
+  <code>number = 5
+  print(number)
+  number = 20
+  print(number)</code>
+  <div>5
+  20</div>    
+  <p>
+    1行目で 5 を代入し、2行目で number を出力しています。
+    3行目で 20 を代入しなおしているので、 number の値は 20 になります。
+    それにより、4行目で 20 が出力されます。
+    
+    また、変数は別の変数を代入することができます。</p>
+  <code>number1 = 3
+  number2 = number1
+  printf(number2)</code>
+  <div>3</div>
+  <p>1行目で number1 に 3 を代入しています。
+  2行目では、 number2 に number1 の値、つまり 3 が代入されます。
+  よって3行目で 3 が出力されます。</p>
+  <code>a = 10
+  b = 4
+  c = 5
+  d = 2
+  print((a + b) * c / d)</code>
+  <div>35</div>
+  <p>a, b, c, d にそれぞれ数値が代入され、5行目で　(a + b) * c / d の計算結果が出力されます。
+
+  以下のようにすることで変数に値を加算できます。</p>
+  <code>a = 10
+    a = a + 5
+    print(a)</code>
+  <div>15</div>
+  <p>1行目で a に 10 を代入しています。
+  2行目では a + 5 つまり 10 + 5 を代入しているため、15 が代入されます。
+  文字列も変数で扱えます。</p>
+  <code>a = "プログラミング"
+  b = "入門"
+  printf(a + b + "講座")</code>
+  <div>プログラミング入門講座</div>
+  <p>1行目, 2行目で a, b に　"プログラミング", "入門" を代入しています。
+    3行目では aの値("プログラミング") と bの値("入門") と "講座" を連結させています。
+    演算子は + ですが文字列型なので連結になります。
+  </p>
+  <h2>配列</h2>
+  <p><b>配列</b>は複数のデータを一つの変数に代入出来る機能です。
+  数値型、文字列型は一つの変数につき一つのデータしか代入できませんでしたが、配列を使うことで多くのデータを一つの変数にまとめることができます。
+  配列は以下のように書きます。
+  &nbsp;&nbsp;変数名 = [データ,データ,データ...]
+  配列では 角かっこ [] で囲い、中にデータをカンマで区切って表します。</p>
+  <code>numbers = [2,5,9,12,30]
+  printf(numbers[0])
+  printf(numbers[1])
+  printf(numbers[2])
+  printf(numbers[3])
+  printf(numbers[4])</code>
+  <div>2
+  5
+  9
+  12
+  30</div>
+  <p>1行目で 変数numbers に 配列[2,5,9,12,30] を代入しています。
+  配列のデータを取り出すときは、変数名[番号] と書きます。
+  番号は <b>0 から数えた</b>数値になっています。
+  numbers[0] が 1番目 の 2、
+  numbers[1] が 2番目 の 5、
+  numbers[2] が 3番目 の 9、
+  numbers[3] が 4番目 の 12、
+  numbers[4] が 5番目 の 30 になります。
+  この番号を<b>インデックス</b>または<b>添え字</b>といいます。
+  また、配列を構成するデータ一つを<b>要素</b>といいます。
+  
+  配列はあらゆる型を要素にすることができます。</p>
+  <code>data = ["にんじん","玉ねぎ","豚肉","じゃがいも"]
+  printf(data[1])
+  printf(data[2] + "と" + data[3] + "を用意します。")</code>
+  <div>玉ねぎ
+  豚肉とじゃがいもを用意します。</div>
+  <p>1行目で要素が文字列の配列を data に代入しています。
+  2行目では単純に data の 2番目の要素である "玉ねぎ" を出力しています。
+  3行目では 
+  ・3番目の要素 "豚肉"
+  ・"と"
+  ・4番目の要素 "じゃがいも"
+  ・"を用意します。"
+  の四つを連結して「豚肉とじゃがいもを用意します。」と出力しています。
+  
+
+
+  <span>&lt;発展&gt;
+  発展的な内容になるため余裕があれば読んでください。
+  一部例外を除いて、配列はあらゆる型を要素にすることができます。
+  また、配列も型の一部です。
+  そのため、配列の要素を配列にすることができます。
+  このように配列の中に配列が入ったものを多次元配列といいます。
+  コードは次のようになります。
+  
+  hairetsu = [[1,2,3,4,5],[2,3,4,5,6],[3,4,5,6,7]]</span>
+  </p>
+  <h2>if文</h2>
+  <p><b>if文</b> は条件により処理を分岐させるために使うものです。
+  プログラミング言語により書き方が異なります。</p>
+  <p>C言語, C++, C#, Java などの場合</p>
+  <code>if(条件式)
+  {
+  &nbsp;&nbsp;&nbsp;&nbsp;処理
+  }</code>
+  <p>Python の場合</p>
+  <code>if 条件式:
+  &nbsp;&nbsp;&nbsp;&nbsp;処理</code>
+  <p>VB の場合</p>
+  <code>If 条件式 Then
+ 　　 処理
+End If</code>
+  <p>ここでは一つ目の書き方で解説します。
+  if文 は、条件式に合致する場合のみ、中かっこ {} の中の処理を行います。
+  条件式は　論理演算子を使うことがほとんどです。</p>
+  <code>a = 1 + 2
+    if(a == 3)
+  {
+    &nbsp;&nbsp;&nbsp;&nbsp;print("a は 3 です")
+  }</code>
+  <div>a は 3 です</div>
+  <p>a には 1 + 2 を代入し、if文の条件(a == 3)と合致したため中の処理が実行されました。</p>
+  <code>a = 1 + 2
+    if(a == 4)
+  {
+    &nbsp;&nbsp;&nbsp;&nbsp;print("a は 4 です")
+  }</code>
+  <div></div>
+  <p>今度は、if文の条件(a == 4)と合致しなかったため中の処理が実行されませんでした。
+  そのため、何も出力されません。</p>
+  <code>a = 1 + 2
+    if(a &lt;= 4)
+  {
+    &nbsp;&nbsp;&nbsp;&nbsp;print("a は 4 以下です")
+  }</code>
+  <div>a は 4 以下です</div>
+  <p>条件(a &lt;= 4)を満たしているため実行されます。</p>
+  <code>a = "あいうえお"
+    if(a == "あいうえお")
+  {
+    &nbsp;&nbsp;&nbsp;&nbsp;print("a は あいうえお です")
+  }</code>
+  <div>a は あいうえお です</div>
+  <p>文字列でも if文 を使用できます。
+  しかし、
+  ・&gt;= 以上
+  ・&lt;= 未満
+  ・&gt; より大きい
+  ・&lt; より小さい
+     などの比較演算子は使用できません。</p>
+  <code>a = "abCde"
+    if(a == "abcde")
+  {
+    &nbsp;&nbsp;&nbsp;&nbsp;print("a は abcde です")
+  }</code>
+  <div></div>
+  <p>if文 は大文字と小文字を別の文字列として扱います。
+  そのため、上の処理は実行されません。</p>
+  
+  <h2>else文</h2>
+  <b>else文</b> は if文 と合わせて使うものです。
+  if文 の後に書くことで条件に合わなかった場合の処理を書くことができます。
+  <code>a = 1234567
+    if(a == 100)
+  {
+    &nbsp;&nbsp;&nbsp;&nbsp;print("a は 100 です")
+  }
+  else
+  {
+    &nbsp;&nbsp;&nbsp;&nbsp;print("a は 100 ではありません")
+  }</code>
+  <div>a は 100 ではありません</div>
+  <p>a == 100 の条件に合わなかったため、else内 の処理が実行されました。</p><code>a = 100
+    if(a == 100)
+  {
+    &nbsp;&nbsp;&nbsp;&nbsp;print("a は 100 です")
+  }
+  else
+  {
+    &nbsp;&nbsp;&nbsp;&nbsp;print("a は 100 ではありません")
+  }</code>
+  <div>a は 100 です</div>
+  <p>a == 100 の条件に合ったため、if内 の処理が実行されました。
+  このとき、else内 の処理は実行されません。</p>
+  
+  <h2>for文</h2>
+  <p><b>for文</b> は繰り返し処理を行うために使うものです。
+  if文 と同様、プログラミング言語により書き方が異なります。</p>
+  <p>C言語, C++, C#, Java などの場合</p>
+  <code>for(int i = 0; i &lt; 10; i++)
+  {
+  &nbsp;&nbsp;&nbsp;&nbsp;処理
+  }</code>
+  <p>Python の場合</p>
+  <code>for i in range(10):
+  &nbsp;&nbsp;&nbsp;&nbsp;処理</code>
+  <p>VB の場合</p>
+  <code>For i = 0 To  10
+ 　　 処理
+  Next</code>
+  <p>ここでは一つ目の書き方を少し変えた書き方で解説します。</p>
+  <code>for(i = 0; i &lt; 10; i++)
+  {
+    &nbsp;&nbsp;&nbsp;&nbsp;print("Hello World")
+  }</code>
+  <div>Hello World
+  Hello World
+  Hello World
+  Hello World
+  Hello World
+  Hello World
+  Hello World
+  Hello World
+  Hello World
+  Hello World</div>
+  <p>1行目で for文 を使用しています。
+  for文 の書き方は以下のようになります。
+    
+  &nbsp;&nbsp;for(変数 = 最初の値; 条件式; 反復式)
+  &nbsp;&nbsp;{
+  &nbsp;&nbsp;&nbsp;&nbsp;処理
+  &nbsp;&nbsp;}
+
+  for文 ではまずはじめに 変数 = 最初の値 が実行されます。
+  for文 を使うには変数を一つ用意しないといけません。
+  変数名は好きなものを使うことができますが、一般的には i が使われることが多いです。
+  その後、条件式を満たしていたら中の処理が実行されます。
+  一回実行が終わったら反復式が実行されます。
+  その後も条件式を満たしていたらまた処理が実行されます。
+  そしてまた反復式、条件を満たしていたら処理、という手順を繰り返します。
+  条件式を満たさなくなると for文 を終了します。
+  まとめると以下の通りです。
+
+  1.変数 = 最初の値 を実行
+  2.処理を実行
+  3.反復式を実行
+  4.条件式を満たしていれば 2 に戻る
+  5.満たしていなければ for文 を終了
+
+  上のコードでは以下のようになります。
+    
+  1.i = 0 を実行 (i に 0 が代入される)
+  2.print("Hello World") を実行
+  3.i++ を実行
+  4.i &lt; 10 (i が 10 未満) を満たしていれば 2 に戻る
+  5.満たしていなければ for文 を終了
+
+  反復式の i++ とは i に 1 を加算するという意味です。
+  このように 変数++ で 1 を加算することを<b>インクリメント</b>といいます。
+
+  処理の中では for文 で使用している変数(ここでは i) を使うことができます。</p>
+  <code>for(i = 0; i &lt; 10; i++)
+  {
+  &nbsp;&nbsp;&nbsp;&nbsp;print(i)
+  }</code>  
+  <div>0
+  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9</div>
+  <p>1行目の for文 により i が 0 から 1 ずつ加算され、i &lt; 10 を満たしている間、処理が繰り返し行われます。
+    3行目ではその i を出力しています。
+  
+  i は 0 以外からも始められます。</p>
+  <code>for(i = 5; i &lt; 10; i++)
+  {
+    &nbsp;&nbsp;&nbsp;&nbsp;print(i)
+  }</code>
+  <div>5
+  6
+  7
+  8
+  9</div>
+  <p>1行目の for文 により i が 5 から 1 ずつ加算され、i &lt; 10 を満たしている間、処理が繰り返し行われます。
+
+    for文 は配列と組み合わせて使うことができます。
+  </p>
+  <code>student = ["伊藤","大谷","川口","佐藤","中野","渡辺"]
+  score = [72,100,23,54,48,81]
+  for(i = 0; i &lt; 6; i++)
+  {
+    &nbsp;&nbsp;&nbsp;&nbsp;print(student[i] + "は" + score[i] + "点です。")
+  }
+  sum = 0;
+  for(i = 0; i &lt; 6; i++)
+  {
+    &nbsp;&nbsp;&nbsp;&nbsp;sum = sum + score[i]
+  }
+  average = sum / 6
+  print("平均点は" + average + "点です。")</code>
+  <div>
+    伊藤は72点です。
+    大谷は100点です。
+    川口は23点です。
+    佐藤は54点です。
+    中野は48点です。
+    渡辺は81点です。
+    平均点は63点です。
+  </div>
+  <p>1行目、2行目で名前と点数の配列を作成しています。
+  3行目 ～ 6行目で全員の名前と点数を出力しています。
+  5行目の student[i] や score[i] のように配列のインデックスには変数を使うことができます。
+  7行目 ～ 13行目では平均点を計算しています。
+  合計点の変数 sum を用意し、for文 で全員の点数を足しています。
+  12行目の average = sum / 6 で平均点を出し、次の13行目で出力しています。</p>
+  <h2>解説</h2>
+  <p>ここでは、<a href="https://www.dnc.ac.jp/albums/abm.php?d=33&f=abm00000307.pdf&n=%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E5%95%8F%E9%A1%8C%E3%80%8E%E6%83%85%E5%A0%B1%E3%80%8F_%E5%95%8F%E9%A1%8C.pdf">共通テスト(情報)サンプル問題</a>の第二問問一の解説をします。
+  問題を読みながら解説を読んでください。</p>
+  <code> Tomei = ["A 党","B 党","C 党","D 党"]
+ Tokuhyo = [1200,660,1440,180]
+ sousuu = 0
+ giseki = 6
+ m を 0 から <b>ア</b> まで 1 ずつ増やしながら繰り返す:
+⎿sousuu = sousuu + Tokuhyo[m]
+ kizyunsuu = sousuu / giseki
+ 表示する("基準得票数：",kizyunsuu )
+ 表示する("比例配分")
+ m を 0 から <b>ア</b> まで 1 ずつ増やしながら繰り返す:
+⎿表示する(Tomei[m],"：", <b>イ</b> / <b>ウ</b> )</code>
+  <div>基準得票数：580
+比例配分
+Ａ党：2.068966
+Ｂ党：1.137931
+Ｃ党：2.482759
+Ｄ党：0.310345</div>
+  <p>5行目で m を 1 ずつ増やすように繰り返し処理が行われています。
+  変数m は6行目の 配列Tokuhyo の添え字として使われています。
+  繰り返し処理で添え字を 1 ずつ増やして Tokuhyo の総数を sousuu に代入しています。
+  配列Tokuhyo の要素は 4つ です。
+  <b>配列の添え字は 0 からはじまる</b>ので、「ア」は「3」になります。
+  
+  11行目ではそれぞれの党の比例配分を出力しています。
+  この「比例配分」とは党が獲得する議席数です。
+  これは 得票数 ÷ 基準得票数 で求められます。
+  得票数は2行目より「Tokuhyo」、
+  基準得票数は7行目より「kizyunsuu」なので
+  答えは「イ」が「Tokuhyo」、「ウ」が「kizyunsuu」になります。</p>
+  <script>
+    window.onload = function() {
+
+    var code = document.querySelectorAll('code');
+    code.forEach((a) => {
+        var line = a.innerHTML.split('\n')
+        a.innerHTML = '';
+        line.forEach((b,c) => {
+            a.innerHTML += '<strong>' + ('0' + (c + 1)).slice(-2) + '| ' + '</strong>' + b + '\r\n';
+        });
+    });
+}
+  </script>
+</body></html>
